@@ -1,0 +1,39 @@
+<div class="conainter mt-4">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h3>Add New Product</h3>
+            <!-- <pre>{{ product | json }}</pre> -->
+            <div class="form-group">
+                <label>Product Title</label>
+                <input type="text" class="form-control" [(ngModel)]="product.title" />
+            </div>
+            <div class="form-group">
+                <label>Product Price</label>
+                <input type="text" class="form-control" [(ngModel)]="product.price" />
+            </div>
+            <div class="form-group">
+                <label>Product Category</label>
+                <select class="form-control" [(ngModel)]="product.category" >
+                    <option>Select</option>
+                    <option *ngFor="let c of allCategory">{{ c.name }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Product Detail</label>
+                <textarea class="form-control" [(ngModel)]="product.detail"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Product Discount (%)</label>
+                <input type="text" class="form-control" [(ngModel)]="product.discount" />
+            </div>
+            <div class="form-group">
+                <label>Total Product Quantity</label>
+                <input type="text" class="form-control" [(ngModel)]="product.quantity" />
+            </div>
+            <br />
+            <Br />
+            <input type="button" (click)="add()" class="btn btn-primary" value="Add">
+            
+        </div>
+    </div>
+</div>

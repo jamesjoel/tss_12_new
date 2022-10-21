@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">Admin Panel</a>
+  
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/admin/dashboard">Dashboard</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" style="cursor: pointer;">Products</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" routerLink="/admin/products">Add</a>
+            <a class="dropdown-item" routerLink="/admin/products/list">List</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" style="cursor: pointer;" data-toggle="dropdown">Category</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" routerLink="/admin/category">Add</a>
+            <a class="dropdown-item" routerLink="/admin/category/list">List</a>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </nav>

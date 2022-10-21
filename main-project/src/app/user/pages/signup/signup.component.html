@@ -1,0 +1,113 @@
+<!-- 
+
+    .was-validated 
+
+ -->
+
+<div class="container">
+    <form [formGroup]="signupForm">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 mt-4">
+            <div class="card">
+                <div class="card-header">
+                    <h3>User Registration</h3>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" [ngClass]="{'is-invalid' : signupForm.controls['name'].errors && checkForm }" formControlName="name" class="form-control" placeholder="Full Name" />
+                        <small class="text-danger" *ngIf="signupForm.controls['name'].errors && checkForm">Insert Your Full Name</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Username/Email</label>
+                        <input type="text" [ngClass]="{'is-invalid' : signupForm.controls['email'].errors && checkForm }" formControlName="email" class="form-control" placeholder="Username/Email" />
+                        <div *ngIf="signupForm.controls['email'].errors && checkForm">
+                            <small class="text-danger" *ngIf="signupForm.controls['email'].errors['required']">Insert Your Email Id</small>
+                            <small class="text-danger" *ngIf="signupForm.controls['email'].errors['email']">This Email Id not Valid</small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" [ngClass]="{'is-invalid' : signupForm.controls['password'].errors && checkForm }" formControlName="password" class="form-control" placeholder="Password" />
+                        <div *ngIf="signupForm.controls['password'].errors && checkForm">
+
+                            <small class="text-danger" *ngIf="signupForm.controls['password'].errors['required']">Insert Your Password</small>
+                            <!-- <small class="text-danger" *ngIf="signupForm.controls['password'].errors['strongErr']">Your Password should be 8 letter password, with at least a symbol, upper and lower case letters and a number</small> -->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Re-Password</label>
+                        <input type="password" [ngClass]="{'is-invalid' : signupForm.controls['re_password'].errors && checkForm }" formControlName="re_password" class="form-control" placeholder="Re-Password" />
+                        <div *ngIf="signupForm.controls['re_password'].errors && checkForm">
+                            <small class="text-danger" *ngIf="signupForm.controls['re_password'].errors['required']">Insert Your Re-Password</small>
+                            <small class="text-danger" *ngIf="signupForm.controls['re_password'].errors['passErr']">Password and Re-Password are not same</small>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Address</label>
+                        <textarea class="form-control" [ngClass]="{'is-invalid' : signupForm.controls['address'].errors && checkForm }" formControlName="address" placeholder="Address" ></textarea>
+                        <small class="text-danger" *ngIf="signupForm.controls['address'].errors && checkForm">Insert Your Address</small>
+                    </div>
+                    <div class="form-group">
+                        <label>City</label>
+                        <select formControlName="city" [ngClass]="{'is-invalid' : signupForm.controls['city'].errors && checkForm }" class="form-control" >
+                            
+                            <option value="">Select</option>
+                            <option *ngFor="let c of allCity">
+                                {{ c.name }}
+                            </option>
+                        </select>
+                        <small class="text-danger" *ngIf="signupForm.controls['city'].errors && checkForm">Select Your City</small>
+                    </div>
+                    <div class="form-group">
+                        <label>State</label>
+                        <select formControlName="state" [ngClass]="{'is-invalid' : signupForm.controls['state'].errors && checkForm }" class="form-control" >
+                            <option value="">Select</option>
+                            <option *ngFor="let s of allState">{{ s }}</option>
+                        </select>
+                        <small class="text-danger" *ngIf="signupForm.controls['state'].errors && checkForm">Select Your State</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" value="male" class="custom-control-input" [ngClass]="{'is-invalid' : signupForm.controls['gender'].errors && checkForm }" id="male" formControlName="gender" >
+                            <label class="custom-control-label" for="male">Male</label>
+                          </div>
+                          <div class="custom-control custom-radio">
+                            <input type="radio" value="female" class="custom-control-input is-invalid" [ngClass]="{'is-invalid' : signupForm.controls['gender'].errors && checkForm }" id="female" formControlName="gender" >
+                            <label class="custom-control-label" for="female">Female</label>
+                          </div>
+                        
+                        <br />
+                        <small class="text-danger" *ngIf="signupForm.controls['gender'].errors && checkForm">Select Your Gender</small>
+                    </div>
+                    <div class="form-group">
+                        
+                        <label>Contact Number</label>
+                        
+                        <div class="input-group">
+                            <div class="input-group-repand">
+
+                                <span class="input-group-text">+91</span>
+                            </div>
+                            <input type="text" formControlName="contact" class="form-control" [ngClass]="{'is-invalid' : signupForm.controls['contact'].errors && checkForm }" placeholder="Contact" />
+                        </div>
+                        <small class="text-danger" *ngIf="signupForm.controls['contact'].errors && checkForm">
+                            <small class="text-danger" *ngIf="signupForm.controls['contact'].errors['required']">Insert Your Contact Number</small>
+                            <small class="text-danger" *ngIf="signupForm.controls['contact'].errors['numErr']">Contact Number should be a Number</small>
+                            <small class="text-danger" *ngIf="signupForm.controls['contact'].errors['lenErr']">Contact Number must be 10 digit</small>
+                        </small>
+                    </div>
+                    
+                </div>
+                <div class="card-footer">
+                    <input type="submit" (click)="signup()" value="Singup" class="btn btn-success" />
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+</div>
+

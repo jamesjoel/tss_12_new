@@ -18,6 +18,7 @@ import { UserComponent } from './user.component';
 import { SliderComponent } from './shared/slider/slider.component';
 import { NewArrivalComponent } from './shared/new-arrival/new-arrival.component';
 import { ShopAreaComponent } from './shared/shop-area/shop-area.component';
+import { MyProfileComponent } from './pages/my-profile/my-profile.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { ShopAreaComponent } from './shared/shop-area/shop-area.component';
     UserComponent,
     SliderComponent,
     NewArrivalComponent,
-    ShopAreaComponent
+    ShopAreaComponent,
+    MyProfileComponent
   ],
   imports: [
     CommonModule,

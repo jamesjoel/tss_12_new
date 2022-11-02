@@ -18,7 +18,7 @@
                                 <li><a routerLink="/contact">contact</a></li>
 
                                 <ng-template [ngIf]="_login.isLoggedIn()" [ngIfElse]="nologin">
-                                    <li><a routerLink="">My Account</a></li>
+                                    <li><a routerLink="/my-profile">My Profile</a></li>
                                     <li><a style="cursor: pointer;" (click)="_login.logout()">Logout</a></li>
                                 </ng-template>
                                 <ng-template #nologin>

@@ -13,6 +13,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { AdminComponent } from './admin.component';
 import { CategoryListComponent } from './pages/category-list/category-list.component';
 import { ProductListComponent } from './pages/product-list/product-list.component';
+import { UsersComponent } from './pages/users/users.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ProductListComponent } from './pages/product-list/product-list.componen
     FooterComponent,
     AdminComponent,
     CategoryListComponent,
-    ProductListComponent
+    ProductListComponent,
+    UsersComponent
   ],
   imports: [
     CommonModule,

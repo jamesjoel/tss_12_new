@@ -17,6 +17,8 @@ routes.post("/", (req, res)=>{
                 // console.log(result[0]);
                 var obj = { email : result[0].email, id : result[0]._id };
                 var token = jwt.sign(obj, "the stepping stone");
+                // console.log(token);
+                // return;
                 res.send({ success : true, token : token });
             }
             else{

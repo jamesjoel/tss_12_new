@@ -1,1 +1,44 @@
-<p>login works!</p>
+<div class="container">
+    
+    <form [formGroup]="loginForm">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 mt-4">
+            
+            <div class="card">
+                <div class="card-header">
+                    <h3>User Login</h3>
+                </div>
+                <div class="card-body">
+                   
+                    
+                    <div class="form-group">
+                        <label>Username/Email</label>
+                        <input type="text" [ngClass]="{'is-invalid' : loginForm.controls['email'].errors && checkForm }" formControlName="email" class="form-control" placeholder="Username/Email" />
+                        <div *ngIf="loginForm.controls['email'].errors && checkForm">
+                            <small class="text-danger" *ngIf="loginForm.controls['email'].errors['required']">Insert Your Email Id</small>
+                            <small class="text-danger" *ngIf="loginForm.controls['email'].errors['email']">This Email Id not Valid</small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" [ngClass]="{'is-invalid' : loginForm.controls['password'].errors && checkForm }" formControlName="password" class="form-control" placeholder="Password" />
+                        <div *ngIf="loginForm.controls['password'].errors && checkForm">
+
+                            <small class="text-danger" *ngIf="loginForm.controls['password'].errors['required']">Insert Your Password</small>
+                            <!-- <small class="text-danger" *ngIf="loginForm.controls['password'].errors['strongErr']">Your Password should be 8 letter password, with at least a symbol, upper and lower case letters and a number</small> -->
+                        </div>
+                    </div>
+                    
+                    <small class="text-danger text-center">{{ errMsg }}</small>
+                    
+                </div>
+                <div class="card-footer">
+                    <input type="submit" (click)="login()" value="Login" class="btn btn-success" />
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+</div>
+
+

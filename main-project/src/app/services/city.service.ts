@@ -10,8 +10,8 @@ export class CityService {
     private _http : HttpClient
   ) { }
 
-  getCity(){
-    return this._http.get<any>("http://localhost:3000/api/city");
+  getCity(x:any){
+    return this._http.post<any>("http://localhost:3000/api/city", { statename : x });
   }
   getState(){
     return this._http.get<any>("http://localhost:3000/api/city/state");

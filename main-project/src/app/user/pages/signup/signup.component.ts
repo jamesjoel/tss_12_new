@@ -16,6 +16,8 @@ export class SignupComponent implements OnInit {
 
   signupForm : FormGroup;
   checkForm = false;
+  state="";
+  
   
   allCity:any=[];
   allState : any =[];
@@ -26,10 +28,7 @@ export class SignupComponent implements OnInit {
     private _router : Router
   ) {
 
-    this._city.getCity().subscribe(result=>{
-      console.log(result);
-      this.allCity = result;
-    })
+    
 
     this._city.getState().subscribe(result=>{
       this.allState = result;
@@ -66,6 +65,15 @@ export class SignupComponent implements OnInit {
       this._router.navigate(["/login"]);
     })
     // console.log(this.signupForm.value);
+  }
+
+
+  getCity(){
+    // console.log(this.state);
+    this._city.getCity(this.state).subscribe(result=>{
+      console.log(result);
+      this.allCity = result;
+    })
   }
 
 }

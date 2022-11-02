@@ -16,8 +16,18 @@
                                 
                                 <li><a routerLink="/about">about</a></li>
                                 <li><a routerLink="/contact">contact</a></li>
-                                <li><a routerLink="/login">login</a></li>
-                                <li><a routerLink="/signup">signup</a></li>
+
+                                <ng-template [ngIf]="_login.isLoggedIn()" [ngIfElse]="nologin">
+                                    <li><a routerLink="">My Account</a></li>
+                                    <li><a style="cursor: pointer;" (click)="_login.logout()">Logout</a></li>
+                                </ng-template>
+                                <ng-template #nologin>
+                                    <li><a routerLink="/login">login</a></li>
+                                    <li><a routerLink="/signup">signup</a></li>
+                                </ng-template>
+
+
+                                
                                 <li><a href="#">Category</a>
                                     <ul class="submenu">
                                         <li *ngFor="let c of allCategory"><a href="shop.html">{{ c.name }}</a></li>

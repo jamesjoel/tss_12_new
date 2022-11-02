@@ -1,8 +1,10 @@
 const routes = require("express").Router();
 const City = require("../models/City");
 
-routes.get("/", (req, res)=>{
-    City.find({}, (err, result)=>{
+routes.post("/", (req, res)=>{
+    // console.log(req.body);
+    var x = req.body.statename;
+    City.find({ state : x }, (err, result)=>{
         res.send(result);
     })
 })

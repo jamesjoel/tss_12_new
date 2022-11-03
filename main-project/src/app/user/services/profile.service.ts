@@ -12,7 +12,9 @@ export class ProfileService {
 
   getUserInfo(){
     
-    let head = new HttpHeaders().set('Authorization', JSON.stringify(localStorage.getItem('token')));
+    let head = new HttpHeaders().
+      set('Authorization', JSON.stringify(localStorage.getItem('token'))
+      );
     return this._http.get<any>("http://localhost:3000/api/user/profile", { headers : head })
   }
 }

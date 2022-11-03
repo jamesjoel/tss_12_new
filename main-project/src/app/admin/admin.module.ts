@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -14,6 +15,7 @@ import { AdminComponent } from './admin.component';
 import { CategoryListComponent } from './pages/category-list/category-list.component';
 import { ProductListComponent } from './pages/product-list/product-list.component';
 import { UsersComponent } from './pages/users/users.component';
+import { LoginComponent } from './pages/login/login.component';
 
 
 @NgModule({
@@ -26,13 +28,15 @@ import { UsersComponent } from './pages/users/users.component';
     AdminComponent,
     CategoryListComponent,
     ProductListComponent,
-    UsersComponent
+    UsersComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ]
 })
 export class AdminModule { }

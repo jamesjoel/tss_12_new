@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-12">
             <h4>User Profile Page</h4>
-            <table class="table table-bordered table-dark">
+            <table *ngIf="user" class="table table-bordered table-dark">
                 <tr>
                     <td>Full Name</td>
                     <td>{{ user.name }}</td>

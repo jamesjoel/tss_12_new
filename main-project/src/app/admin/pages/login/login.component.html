@@ -1,0 +1,27 @@
+<div class="container my-4">
+    <form [formGroup]="loginForm">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Administrator Login</h4>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="">Username</label>
+                        <input type="text" formControlName="username" [ngClass]="{'is-invalid' : loginForm.controls['username'].errors && checkForm }" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="">Password</label>
+                        <input type="password" formControlName="password" [ngClass]="{'is-invalid' : loginForm.controls['password'].errors && checkForm }" class="form-control" />
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <input type="submit" value="Login" (click)="login()" class="btn btn-primary" />
+                    <small class="text-danger">{{ errMsg }}</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+</div>

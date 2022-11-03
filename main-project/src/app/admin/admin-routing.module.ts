@@ -7,12 +7,17 @@ import { CategoryComponent } from './pages/category/category.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ProductListComponent } from './pages/product-list/product-list.component';
 import { ProdutsComponent } from './pages/produts/produts.component';
+import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [
   {
     path : "",
     component : AdminComponent,
     children : [
+      {
+        path : "",
+        component : LoginComponent
+      },
       {
         path : "dashboard",
         component : DashboardComponent

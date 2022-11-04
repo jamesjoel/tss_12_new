@@ -8,6 +8,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ProductListComponent } from './pages/product-list/product-list.component';
 import { ProdutsComponent } from './pages/produts/produts.component';
 import { LoginComponent } from './pages/login/login.component';
+import { AuthGuard } from './guards/auth.guard';
+import { AntiAuthGuard } from './guards/anti-auth.guard';
 
 const routes: Routes = [
   {
@@ -16,31 +18,39 @@ const routes: Routes = [
     children : [
       {
         path : "",
-        component : LoginComponent
+        component : LoginComponent,
+        canActivate : [AntiAuthGuard]
       },
       {
         path : "dashboard",
-        component : DashboardComponent
+        component : DashboardComponent,
+        canActivate : [AuthGuard]
+
       },
       {
         path : "products",
-        component : ProdutsComponent
+        component : ProdutsComponent,
+        canActivate : [AuthGuard]
       },
       {
         path : "category",
-        component : CategoryComponent
+        component : CategoryComponent,
+        canActivate : [AuthGuard]
       },
       {
         path : "category/list",
-        component : CategoryListComponent
+        component : CategoryListComponent,
+        canActivate : [AuthGuard]
       },
       {
         path : "products/list",
-        component : ProductListComponent
+        component : ProductListComponent,
+        canActivate : [AuthGuard]
       },
       {
         path : "users",
-        component : UsersComponent
+        component : UsersComponent,
+        canActivate : [AuthGuard]
       }
     ]
   }

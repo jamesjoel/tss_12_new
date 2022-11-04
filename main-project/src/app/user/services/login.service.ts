@@ -28,6 +28,19 @@ export class LoginService {
 
   logout(){
     localStorage.removeItem("token");
+    localStorage.removeItem("name");
     this._router.navigate(["/login"]);
+  }
+  getName(){
+    if(localStorage.getItem("name")){
+      return localStorage.getItem("name");
+    }
+    else{
+      return false;
+    }
+  }
+
+  checkEmail(obj:any){
+    return this._http.post<any>("http://localhost:3000/api/login/forgotpassword", obj);
   }
 }

@@ -2,6 +2,24 @@ const routes = require("express").Router();
 const User = require("../models/User");
 const sha1 = require("sha1");
 const jwt = require("jsonwebtoken");
+const rand = require("random-numbers");
+
+routes.post("/forgotpassword", (req, res)=>{
+    var e = req.body.email;
+    User.find({ email : e }, (err, result)=>{
+        if(result.length > 0)
+        {
+            var rand_num = rand.create(1000, 9999);
+            User.updateMany({ email : e }, { otp : rand_num }, (err)=>{
+                res.send({ success : true });
+            })   
+        }
+        else{
+            res.send({ success : false });
+        }
+    })
+})
+
 
 routes.post("/", (req, res)=>{
     // console.log(req.body);
@@ -19,7 +37,7 @@ routes.post("/", (req, res)=>{
                 var token = jwt.sign(obj, "the stepping stone");
                 // console.log(token);
                 // return;
-                res.send({ success : true, token : token });
+                res.send({ success : true, token : token, name : result[0].name });
             }
             else{
 

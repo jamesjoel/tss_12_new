@@ -9,7 +9,7 @@
   
     <!-- Navbar links -->
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
-      <ul class="navbar-nav">
+      <ul *ngIf="_login.isLoggedIn()" class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" routerLink="/admin/dashboard">Dashboard</a>
         </li>

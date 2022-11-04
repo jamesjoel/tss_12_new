@@ -27,6 +27,9 @@
                             <small class="text-danger" *ngIf="loginForm.controls['password'].errors['required']">Insert Your Password</small>
                             <!-- <small class="text-danger" *ngIf="loginForm.controls['password'].errors['strongErr']">Your Password should be 8 letter password, with at least a symbol, upper and lower case letters and a number</small> -->
                         </div>
+                        
+                        <a style="color : rgb(31, 94, 201); font-size: 14px;" routerLink="/forgot-password">Forgot Password</a>
+                    
                     </div>
                     
                     <small class="text-danger text-center">{{ errMsg }}</small>
@@ -34,6 +37,7 @@
                 </div>
                 <div class="card-footer">
                     <input type="submit" (click)="login()" value="Login" class="btn btn-success" />
+                    
                 </div>
             </div>
         </div>

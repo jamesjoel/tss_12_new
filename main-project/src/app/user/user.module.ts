@@ -19,6 +19,8 @@ import { SliderComponent } from './shared/slider/slider.component';
 import { NewArrivalComponent } from './shared/new-arrival/new-arrival.component';
 import { ShopAreaComponent } from './shared/shop-area/shop-area.component';
 import { MyProfileComponent } from './pages/my-profile/my-profile.component';
+import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
+import { OtpComponent } from './pages/otp/otp.component';
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import { MyProfileComponent } from './pages/my-profile/my-profile.component';
     SliderComponent,
     NewArrivalComponent,
     ShopAreaComponent,
-    MyProfileComponent
+    MyProfileComponent,
+    ForgotPasswordComponent,
+    OtpComponent
   ],
   imports: [
     CommonModule,

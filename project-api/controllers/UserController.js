@@ -8,6 +8,8 @@ routes.post("/signup", (req, res)=>{
     delete req.body.re_password;
 
     req.body.password = sha1(req.body.password);
+
+    req.body.otp = null;
     
     User.create(req.body, (err)=>{
         res.send({ success : true });

@@ -3,6 +3,12 @@ const Admin = require("../models/Admin");
 const sha1 = require("sha1");
 const jwt = require("jsonwebtoken");
 
+routes.get("/save", ()=>{
+    Admin.create({name : "Rohit", username : "rohit", password : "5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8"},(err)=>{
+        console.log("saved");
+    })
+})
+
 routes.post("/login", (req, res)=>{
     // console.log(req.body);
     var u = req.body.username; // hello@gmail.com
@@ -16,7 +22,7 @@ routes.post("/login", (req, res)=>{
             {
                 var obj = { username : result[0].username, id : result[0]._id };
                 var token = jwt.sign(obj, "the stepping stone");
-                res.send({ success : true, token : token });
+                res.send({ success : true, token : token, name : result[0].name });
             }
             else{
 

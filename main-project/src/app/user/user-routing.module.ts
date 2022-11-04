@@ -8,6 +8,9 @@ import { MyProfileComponent } from './pages/my-profile/my-profile.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { UserComponent } from './user.component';
 import { AuthGuard } from '../guards/auth.guard';
+import { AntiAuthGuard } from '../guards/anti-auth.guard';
+import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
+import { OtpComponent } from './pages/otp/otp.component';
 
 const routes: Routes = [
   {
@@ -28,16 +31,28 @@ const routes: Routes = [
       },
       {
         path : "login",
-        component : LoginComponent
+        component : LoginComponent,
+        canActivate : [AntiAuthGuard]
       },
       {
         path : "signup",
-        component : SignupComponent
+        component : SignupComponent,
+        canActivate : [AntiAuthGuard]
       },
       {
         path : "my-profile",
         component : MyProfileComponent,
         canActivate : [AuthGuard]
+      },
+      {
+        path : "forgot-password",
+        component : ForgotPasswordComponent,
+        canActivate : [AntiAuthGuard]
+      },
+      {
+        path :"otp",
+        component : OtpComponent,
+        canActivate : [AntiAuthGuard]
       }
     ]
   }

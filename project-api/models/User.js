@@ -9,7 +9,8 @@ const User = mongoose.Schema({
     city : String,
     state : String,
     gender : String,
-    contact : String
+    contact : String,
+    otp : Number
 
 })
 

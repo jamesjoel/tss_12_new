@@ -21,6 +21,7 @@ import { ShopAreaComponent } from './shared/shop-area/shop-area.component';
 import { MyProfileComponent } from './pages/my-profile/my-profile.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { OtpComponent } from './pages/otp/otp.component';
+import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { OtpComponent } from './pages/otp/otp.component';
     ShopAreaComponent,
     MyProfileComponent,
     ForgotPasswordComponent,
-    OtpComponent
+    OtpComponent,
+    ChangePasswordComponent
   ],
   imports: [
     CommonModule,

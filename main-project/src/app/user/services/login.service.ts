@@ -43,4 +43,8 @@ export class LoginService {
   checkEmail(obj:any){
     return this._http.post<any>("http://localhost:3000/api/login/forgotpassword", obj);
   }
+
+  updatepass(obj:any){
+    return this._http.post<any>("http://localhost:3000/api/login/updatepassword", obj);
+  }
 }

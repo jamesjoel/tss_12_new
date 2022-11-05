@@ -11,7 +11,7 @@ routes.post("/forgotpassword", (req, res)=>{
         {
             var rand_num = rand.create(1000, 9999);
             User.updateMany({ email : e }, { otp : rand_num }, (err)=>{
-                res.send({ success : true });
+                res.send({ success : true, otp : rand_num });
             })   
         }
         else{
@@ -49,6 +49,16 @@ routes.post("/", (req, res)=>{
         }
     })
 
+})
+
+
+routes.post("/updatepassword", (req, res)=>{
+    console.log(req.body);
+    var obj = { password : sha1(req.body.password), otp : null };
+
+    User.updateMany({ email : req.body.email }, obj, (err)=>{
+        res.send({ success : true });
+    })
 })
 
 module.exports = routes;

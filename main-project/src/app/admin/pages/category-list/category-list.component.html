@@ -1,16 +1,40 @@
 <div class="container mt-4">
     <div class="row">
         <div class="col-md-8 offset-md-2">
+
+            <!-- <button #btn (click)="demo1()" style="display: none;">Button 1</button>
+            <button (click)="demo2(btn)">Button 2</button> -->
+
             <table class="table table-dark">
                 <tr>
                     <th>S.No.</th>
                     <th>Category Name</th>
+                    <th>Delete</th>
                 </tr>
                 <tr *ngFor="let c of allCategory; let n = index">
                     <td>{{ n+1 }}</td>
                     <td>{{ c.name }}</td>
+                    <td><button data-toggle="modal" data-target="#delModal" (click)="delete(c)" class="btn btn-sm btn-danger p-3">Delete</button></td>
                 </tr>
             </table>
+        </div>
+    </div>
+</div>
+
+
+<div id="delModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Delete Category</h3>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure want to delete this</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger p-3" (click)="confirm_delete(noBtn)">Yes</button>
+                <button class="btn btn-success p-3" #noBtn data-dismiss="modal">No</button>
+            </div>
         </div>
     </div>
 </div>

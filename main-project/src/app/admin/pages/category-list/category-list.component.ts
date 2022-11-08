@@ -9,6 +9,7 @@ import { CategoryService } from 'src/app/services/category.service';
 export class CategoryListComponent implements OnInit {
 
   allCategory:any;
+  category:any;
   constructor(
     private _cate : CategoryService
   ) {
@@ -20,4 +21,45 @@ export class CategoryListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  delete(obj:any){
+    console.log(obj);
+    this.category = obj;
+  }
+
+  confirm_delete(x:any){
+    this._cate.deleteCategory(this.category._id).subscribe(result=>{
+      if(result.success == true){
+        let n = this.allCategory.indexOf(this.category);
+        this.allCategory.splice(n, 1);
+        x.click();
+      }
+    })
+  }
+
+  demo1(){
+    console.log("****************");
+  }
+
+
+  demo2(x:any){
+    x.click();
+  }
+
 }
+
+
+/*
+
+let arr = ['red', 'green, 'blue', 'yellow', 'pink'];
+let n = arr.indexOf('yellow');
+
+arr.splice(2, 2);
+
+
+
+
+
+
+
+
+*/

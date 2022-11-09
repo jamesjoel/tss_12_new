@@ -9,11 +9,13 @@
                 <tr>
                     <th>S.No.</th>
                     <th>Category Name</th>
+                    <th>Update</th>
                     <th>Delete</th>
                 </tr>
                 <tr *ngFor="let c of allCategory; let n = index">
                     <td>{{ n+1 }}</td>
                     <td>{{ c.name }}</td>
+                    <td><a class="btn btn-info p-3" routerLink="/admin/category/edit/{{ c._id }}">Update</a></td>
                     <td><button data-toggle="modal" data-target="#delModal" (click)="delete(c)" class="btn btn-sm btn-danger p-3">Delete</button></td>
                 </tr>
             </table>

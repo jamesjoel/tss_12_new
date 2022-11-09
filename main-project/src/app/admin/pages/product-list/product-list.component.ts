@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class ProductListComponent implements OnInit {
 
   allProduct : any;
+  product:any;
   constructor(
     private _pro : ProductService,
     private _router : Router
@@ -22,4 +23,16 @@ export class ProductListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  delete(obj:any){
+    this.product = obj;
+  }
+
+  confirm_delete(btn:any){
+    this._pro.deleteProduct(this.product._id).subscribe(result=>{
+      // console.log(result);
+      let n = this.allProduct.indexOf(this.product);
+      this.allProduct.splice(n, 1);
+      btn.click();
+    })
+  }
 }

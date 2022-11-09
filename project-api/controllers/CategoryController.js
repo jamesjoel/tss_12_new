@@ -18,13 +18,15 @@ routes.get("/", (req, res)=>{
 })
 
 //// localhost:3000/api/category/124451245
+// single cate find by id
 routes.get("/:id", (req, res)=>{
     var id = req.params.id;
     Category.find({_id : id}).sort({ name : 1}).exec((err, result)=>{
-        res.send(result);
+        res.send(result[0]);
     });
 })
 
+// delete
 routes.delete("/:id", (req, res)=>{
     var id = req.params.id;
     Category.deleteMany({_id : id}, (err)=>{
@@ -38,7 +40,7 @@ routes.delete("/:id", (req, res)=>{
 routes.put("/:id", (req, res)=>{
     var id = req.params.id;
     Category.updateMany({ _id : id }, req.body, (err)=>{
-
+        res.send({ success : true });
     })
 })
 

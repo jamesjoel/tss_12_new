@@ -9,7 +9,7 @@ routes.get("/", (req, res)=>{
 routes.get("/:id", (req, res)=>{
     var id = req.params.id;
     Product.find({_id:id}, (err, result)=>{
-        res.send(result);
+        res.send(result[0]);
     })
 })
 routes.post("/", (req, res)=>{

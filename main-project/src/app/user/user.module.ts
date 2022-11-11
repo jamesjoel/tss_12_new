@@ -22,6 +22,8 @@ import { MyProfileComponent } from './pages/my-profile/my-profile.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { OtpComponent } from './pages/otp/otp.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
+import { BoxComponent } from './shared/box/box.component';
+import { ProductBoxComponent } from './shared/product-box/product-box.component';
 
 
 @NgModule({
@@ -40,7 +42,9 @@ import { ChangePasswordComponent } from './pages/change-password/change-password
     MyProfileComponent,
     ForgotPasswordComponent,
     OtpComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    BoxComponent,
+    ProductBoxComponent
   ],
   imports: [
     CommonModule,

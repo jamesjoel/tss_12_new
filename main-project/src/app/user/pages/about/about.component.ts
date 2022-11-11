@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MyServService } from '../../services/my-serv.service';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-about',
@@ -8,7 +9,18 @@ import { MyServService } from '../../services/my-serv.service';
 })
 export class AboutComponent implements OnInit {
 
-  constructor(public a : MyServService) { }
+  x:any;
+  constructor(
+      public a : MyServService,
+      private _pro : ProductService
+      ) {
+
+        this._pro.getLastProduct().subscribe(result=>{
+          this.x = result;
+          // console.log(this.x);
+        })
+
+       }
 
   ngOnInit(): void {
   }

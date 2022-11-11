@@ -28,4 +28,8 @@ export class ProductService {
     return this._http.put<any>("http://localhost:3000/api/product/"+id, obj);
 
   }
+
+  getLastProduct(){
+    return this._http.get<any>("http://localhost:3000/api/product/lastproduct");
+  }
 }

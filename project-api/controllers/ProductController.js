@@ -6,12 +6,23 @@ routes.get("/", (req, res)=>{
         res.send(result);
     })
 })
+
+routes.get("/lastproduct", (req, res)=>{
+    Product.find({}).sort({ _id : -1 }).limit(1).exec((err, result)=>{
+        res.send(result);
+    })  
+})
+
+
 routes.get("/:id", (req, res)=>{
     var id = req.params.id;
     Product.find({_id:id}, (err, result)=>{
         res.send(result[0]);
     })
 })
+
+
+
 routes.post("/", (req, res)=>{
     
     Product.create(req.body, (err)=>{

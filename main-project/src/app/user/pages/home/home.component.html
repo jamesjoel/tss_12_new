@@ -11,22 +11,8 @@
             </div>
         </div>
         <div class="row">
-            <div *ngFor="let p of allProduct" class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                <div class="single-popular-items mb-50 text-center">
-                    <div class="popular-img">
-                        <img src="assets/img/gallery/popular1.png" alt="">
-                        <div class="img-cap">
-                            <span>Add to cart</span>
-                        </div>
-                        <div class="favorit-items">
-                            <span class="flaticon-heart"></span>
-                        </div>
-                    </div>
-                    <div class="popular-caption">
-                        <h3><a href="product_details.html">{{ p.title }}</a></h3>
-                        <span>&#8377; {{ p.price }}</span>
-                    </div>
-                </div>
+            <div *ngFor="let product of allProduct" class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                <app-product-box [product]="product"></app-product-box>
             </div>
             
         </div>

@@ -11,6 +11,8 @@ import { HttpClient } from '@angular/common/http';
 export class ContactComponent implements OnInit {
 
   users:any=[];
+
+  a = "rohit";
   
   constructor(
     private my : MyServService,

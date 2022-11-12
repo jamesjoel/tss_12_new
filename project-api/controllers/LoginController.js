@@ -32,12 +32,17 @@ routes.post("/", (req, res)=>{
         {
             if(result[0].password == sha1(p))
             {
-                // console.log(result[0]);
-                var obj = { email : result[0].email, id : result[0]._id };
-                var token = jwt.sign(obj, "the stepping stone");
-                // console.log(token);
-                // return;
-                res.send({ success : true, token : token, name : result[0].name });
+                if(result[0].status==1){
+
+                    // console.log(result[0]);
+                    var obj = { email : result[0].email, id : result[0]._id };
+                    var token = jwt.sign(obj, "the stepping stone");
+                    // console.log(token);
+                    // return;
+                    res.send({ success : true, token : token, name : result[0].name });
+                }else{
+                    res.send({ success : false, type : 3});
+                }
             }
             else{
 

@@ -10,6 +10,7 @@ routes.post("/signup", (req, res)=>{
     req.body.password = sha1(req.body.password);
 
     req.body.otp = null;
+    req.body.status = 1;
     
     User.create(req.body, (err)=>{
         res.send({ success : true });
@@ -36,6 +37,14 @@ routes.get("/profile", (req, res)=>{
     }else{
         res.send({ success : false });
     }
+})
+
+
+routes.put("/profile/:id", (req, res)=>{
+    var id = req.params.id;
+    User.updateMany({_id : id }, req.body, (err)=>{
+        res.send({ success : true });
+    })
 })
 
 

@@ -45,6 +45,10 @@ export class LoginComponent implements OnInit {
           
           this.errMsg = "This Password is Incorrect !";
         }
+        if(result.type == 3){
+          
+          this.errMsg = "Right Now you are Blocked !!!!";
+        }
       }
       else{
         //console.log(result);

@@ -13,4 +13,7 @@ export class UsersService {
   getUsers(){
     return this._http.get<any>("http://localhost:3000/api/user/list");
   }
+  updateUser(id:any, obj:any){
+    return this._http.put<any>("http://localhost:3000/api/user/profile/"+id, obj);
+  }
 }

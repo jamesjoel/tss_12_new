@@ -9,6 +9,7 @@ import { UsersService } from '../../services/users.service';
 export class UsersComponent implements OnInit {
 
   users : any = [];
+  msg="";
   constructor(
     private _users : UsersService
   ) {
@@ -21,4 +22,18 @@ export class UsersComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  change_status(obj:any){
+    console.log(obj);
+    obj.status = ! obj.status;
+    let id = obj._id;
+    this._users.updateUser(id, obj).subscribe(result=>{
+      console.log(result);
+      this.msg = "Status Change Successfuly";
+      
+    })
+  }
+  close(){
+    this.msg = '';
+  }
 }

@@ -57,6 +57,11 @@ const routes: Routes = [
         component : CategoryComponent,
         canActivate : [AuthGuard]
        
+      },
+      {
+        path : "product/edit/:id",
+        component : ProdutsComponent,
+        canActivate : [AuthGuard]
       }
     ]
   }

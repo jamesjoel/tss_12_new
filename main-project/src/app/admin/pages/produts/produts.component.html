@@ -1,7 +1,7 @@
 <div class="conainter mt-4">
     <div class="row">
         <div class="col-md-6 offset-md-3">
-            <h3>Add New Product</h3>
+            <h3>{{ id ? "Update" : "Add New"}} Product</h3>
             <!-- <pre>{{ product | json }}</pre> -->
             <div class="form-group">
                 <label>Product Title</label>
@@ -32,7 +32,7 @@
             </div>
             <br />
             <Br />
-            <input type="button" (click)="add()" class="btn btn-primary" value="Add">
+            <input type="button" (click)="add()" class="btn btn-primary" value="{{ id ? 'Update' : 'Add' }}">
             
         </div>
     </div>

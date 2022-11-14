@@ -27,12 +27,12 @@ export class ProductListComponent implements OnInit {
     this.product = obj;
   }
 
-  confirm_delete(btn:any){
+  confirm_delete(){
     this._pro.deleteProduct(this.product._id).subscribe(result=>{
       // console.log(result);
       let n = this.allProduct.indexOf(this.product);
       this.allProduct.splice(n, 1);
-      btn.click();
+      
     })
   }
 }

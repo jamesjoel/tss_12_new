@@ -10,6 +10,7 @@ import { ProductService } from 'src/app/services/product.service';
 export class AboutComponent implements OnInit {
 
   x:any;
+  y:any;
   constructor(
       public a : MyServService,
       private _pro : ProductService
@@ -25,4 +26,9 @@ export class AboutComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  demo2(a:any){
+    // console.log(a);
+    this.y = a;
+  }
 }

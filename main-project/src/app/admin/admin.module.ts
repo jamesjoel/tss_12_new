@@ -16,6 +16,9 @@ import { CategoryListComponent } from './pages/category-list/category-list.compo
 import { ProductListComponent } from './pages/product-list/product-list.component';
 import { UsersComponent } from './pages/users/users.component';
 import { LoginComponent } from './pages/login/login.component';
+import { H1Component } from './shared/h1/h1.component';
+import { DeleteComponent } from './shared/delete/delete.component';
+import { InputTextComponent } from './shared/input-text/input-text.component';
 
 
 @NgModule({
@@ -29,7 +32,10 @@ import { LoginComponent } from './pages/login/login.component';
     CategoryListComponent,
     ProductListComponent,
     UsersComponent,
-    LoginComponent
+    LoginComponent,
+    H1Component,
+    DeleteComponent,
+    InputTextComponent
   ],
   imports: [
     CommonModule,

@@ -10,6 +10,7 @@ import { Input } from '@angular/core';
 export class BoxComponent implements OnInit {
 
   @Input() x:any;
+  @Input() y:any;
 
   constructor() { }
 

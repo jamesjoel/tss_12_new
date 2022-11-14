@@ -13,6 +13,8 @@ export class ContactComponent implements OnInit {
   users:any=[];
 
   a = "rohit";
+  b = "jaya";
+  c:any;
   
   constructor(
     private my : MyServService,
@@ -28,6 +30,10 @@ export class ContactComponent implements OnInit {
       
       this.users = data;
     });
+  }
+
+  demo2(){
+    this.c = this.b;
   }
 
 }

@@ -26,12 +26,12 @@ export class CategoryListComponent implements OnInit {
     this.category = obj;
   }
 
-  confirm_delete(x:any){
+  confirm_delete(){
     this._cate.deleteCategory(this.category._id).subscribe(result=>{
       if(result.success == true){
         let n = this.allCategory.indexOf(this.category);
         this.allCategory.splice(n, 1);
-        x.click();
+        
       }
     })
   }

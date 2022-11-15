@@ -11,6 +11,10 @@ export class ProductListComponent implements OnInit {
 
   allProduct : any;
   product:any;
+
+  colNames : any = ["S.No.", "Title", "Price", "Category", "Update", "Delete"];
+  propName = ["title", "price","category", "_id"];
+  upDateUrl = "/admin/product/edit";
   constructor(
     private _pro : ProductService,
     private _router : Router

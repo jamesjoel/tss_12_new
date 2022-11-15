@@ -10,6 +10,10 @@ export class CategoryListComponent implements OnInit {
 
   allCategory:any;
   category:any;
+
+  colNames : any = ["S.No.", "Category Name", "Update", "Delete"];
+  propName : any = ["name", "_id"];
+  upDateUrl = "/admin/category/edit/";
   constructor(
     private _cate : CategoryService
   ) {

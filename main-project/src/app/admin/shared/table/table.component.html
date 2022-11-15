@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-dark">
+                <tr>
+                    <th *ngFor="let c of colNames">{{ c }}</th>
+                </tr>
+                <tr *ngFor="let data of data; let n = index">
+                    <td>{{ n+1 }}</td>
+                    <ng-container *ngFor="let p of propName">
+                        <td *ngIf="p != '_id'">{{ data[p] }}</td>
+                    </ng-container>
+                    <td><a routerLink='{{ upDateUrl+"/"+data["_id"] }}' class="btn btn-info p-3">Update</a></td>
+                    <td><button class="btn btn-danger p-3" data-toggle="modal" data-target="#delModal">Delete</button></td>
+                    
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

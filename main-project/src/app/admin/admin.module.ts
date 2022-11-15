@@ -19,6 +19,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { H1Component } from './shared/h1/h1.component';
 import { DeleteComponent } from './shared/delete/delete.component';
 import { InputTextComponent } from './shared/input-text/input-text.component';
+import { TableComponent } from './shared/table/table.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { InputTextComponent } from './shared/input-text/input-text.component';
     LoginComponent,
     H1Component,
     DeleteComponent,
-    InputTextComponent
+    InputTextComponent,
+    TableComponent
   ],
   imports: [
     CommonModule,

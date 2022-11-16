@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <script>
+            let [, x, ]= [ 5, 7, 12];
+            console.log(x);
+
+            let { name : a, age : b }={ name : "rohit", age : 25};
+            console.log(a);
+            console.log(b);
+
+            let user = { name : "rohit", age : 25, city : "mumbai", gender : "male" };
+
+            let {name : a, age : b, city : c, gender : d } = user;
+
+
+            let arr = ["red", "green", "blue", "yellow"];
+
+            let [a, ...arr2, b, c] = arr;
+            let [a, arr2, b, c] = arr;
+
+            // arr2 = "green";
+            // arr2 = ["green"];
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

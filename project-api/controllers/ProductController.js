@@ -1,5 +1,6 @@
 const routes = require("express").Router();
 const Product = require("../models/Product");
+const path = require("path");
 
 routes.get("/", (req, res)=>{
     Product.find({}, (err, result)=>{
@@ -24,10 +25,23 @@ routes.get("/:id", (req, res)=>{
 
 
 routes.post("/", (req, res)=>{
+
     
-    Product.create(req.body, (err)=>{
-        res.send({ success : true });
-    })
+    var data = JSON.parse(req.body.data);
+    var image = req.files.image;
+    
+    image.mv(path.resolve()+"/assets/pro-img/"+image.name, (err)=>{
+        if(err){
+            console.log(err);
+            return;
+        }
+
+        Product.create(data, (err)=>{
+            res.send({ success : true });
+        })
+    });
+   
+    
 })
 routes.put("/:id", (req, res)=>{
     var id = req.params.id;

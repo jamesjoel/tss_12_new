@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from 'src/app/services/product.service';
 import { ActivatedRoute } from '@angular/router';
+import { ConnectableObservable } from 'rxjs';
 
 @Component({
   selector: 'app-produts',
@@ -19,7 +20,8 @@ export class ProdutsComponent implements OnInit {
     category :  "",
     detail : "",
     discount : null,
-    quantity : null
+    quantity : null,
+    image : ""
   }
   constructor(
     private _router : Router,
@@ -44,7 +46,7 @@ export class ProdutsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  add(){
+  add(img:any){
     if(this.id){ // update code here
       this._pro.updateProduct(this.id, this.product).subscribe(result=>{
         // console.log(result);
@@ -52,7 +54,15 @@ export class ProdutsComponent implements OnInit {
       })
     }else{ // add code here
 
-      this._pro.addProduct(this.product).subscribe(result=>{
+      // console.log(this.product);
+      // console.log(img.files[0]);
+      let imgdata = img.files[0];
+      let form = new FormData();
+      form.append("data", JSON.stringify(this.product));
+      form.append("image", imgdata);
+
+      //return;
+      this._pro.addProduct(form).subscribe(result=>{
         // console.log(result);
         this._router.navigate(["/admin/products/list"]);
       })

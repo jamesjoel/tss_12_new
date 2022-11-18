@@ -73,6 +73,22 @@ export function strongPass()
 
 
 
+export function demo(p:any){
+    return function(mnq : FormGroup){
+        let a = mnq.controls[p];
+
+        if(! isNaN(a.value))
+        {
+            a.setErrors({ x : true });
+        }
+    }
+}
+
+
+//  [demo('name)]
+//  [demo('fname)]
+
+
 /*
 app.listen(3000, function(){
 

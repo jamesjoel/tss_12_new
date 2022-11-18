@@ -1,43 +1,64 @@
 <div class="conainter mt-4">
+    <form [formGroup]="product">
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <h3>{{ id ? "Update" : "Add New"}} Product</h3>
             <!-- <pre>{{ product | json }}</pre> -->
             <div class="form-group">
                 <label>Product Title</label>
-                <input type="text" class="form-control" [(ngModel)]="product.title" />
+                <input type="text" [ngClass]="{'is-invalid' : product.controls['title'].errors && checkForm }" class="form-control" formControlName="title" />
+                <small *ngIf="product.controls['title'].errors && checkForm " class="text-danger">Insert Product Title</small>
             </div>
             <div class="form-group">
                 <label>Product Image</label>
-                <input type="file" #img class="form-control" [(ngModel)]="product.image" />
+                <input type="file" (change)="checkImgSize(img)" #img class="form-control" [ngClass]="{'is-invalid' : product.controls['image'].errors && checkForm }" formControlName="image" />
+                <div *ngIf="product.controls['image'].errors && checkForm">
+                    <small class="text-danger" *ngIf="product.controls['image'].errors['required']">Select Your Product Image</small>
+                    <small class="text-danger" *ngIf="product.controls['image'].errors['typeErr']">Select Image Only</small>
+                    <small class="text-danger" *ngIf="product.controls['image'].errors['sizeErr']">Image Size Should Be less then 5 mb</small>
+                    
+                </div>
             </div>
             <div class="form-group">
                 <label>Product Price</label>
-                <input type="text" class="form-control" [(ngModel)]="product.price" />
+                <input type="text" class="form-control" [ngClass]="{'is-invalid' : product.controls['price'].errors && checkForm }" formControlName="price" />
+                <div *ngIf="product.controls['price'].errors && checkForm">
+                    <small class="text-danger" *ngIf="product.controls['price'].errors['required']">Insert Product Price</small>
+                    <small class="text-danger" *ngIf="product.controls['price'].errors['numErr']">Insert Price Only In Digits</small>
+                </div>
             </div>
             <div class="form-group">
                 <label>Product Category</label>
-                <select class="form-control" [(ngModel)]="product.category" >
+                <select class="form-control" formControlName="category" [ngClass]="{'is-invalid' : product.controls['category'].errors && checkForm }">
                     <option>Select</option>
                     <option *ngFor="let c of allCategory">{{ c.name }}</option>
                 </select>
             </div>
             <div class="form-group">
                 <label>Product Detail</label>
-                <textarea class="form-control" [(ngModel)]="product.detail"></textarea>
+                <textarea class="form-control" formControlName="detail" [ngClass]="{'is-invalid' : product.controls['detail'].errors && checkForm }"></textarea>
             </div>
             <div class="form-group">
                 <label>Product Discount (%)</label>
-                <input type="text" class="form-control" [(ngModel)]="product.discount" />
+                <input type="text" class="form-control" formControlName="discount" [ngClass]="{'is-invalid' : product.controls['discount'].errors && checkForm }"/>
+                <div *ngIf="product.controls['discount'].errors && checkForm">
+                    <small class="text-danger" *ngIf="product.controls['discount'].errors['required']">Insert Product Discount</small>
+                    <small class="text-danger" *ngIf="product.controls['discount'].errors['numErr']">Insert Discount Only In Digits</small>
+                </div>
             </div>
             <div class="form-group">
                 <label>Total Product Quantity</label>
-                <input type="text" class="form-control" [(ngModel)]="product.quantity" />
+                <input type="text" class="form-control" formControlName="quantity" [ngClass]="{'is-invalid' : product.controls['quantity'].errors && checkForm }"/>
+                <div *ngIf="product.controls['quantity'].errors && checkForm">
+                    <small class="text-danger" *ngIf="product.controls['quantity'].errors['required']">Insert Product Quantity</small>
+                    <small class="text-danger" *ngIf="product.controls['quantity'].errors['numErr']">Insert Quantity Only In Digits</small>
+                </div>
             </div>
             <br />
             <Br />
-            <input type="button" (click)="add(img)" class="btn btn-primary" value="{{ id ? 'Update' : 'Add' }}">
+            <input type="button" (click)="add(img)"  class="btn btn-primary" value="{{ id ? 'Update' : 'Add' }}">
             
         </div>
     </div>
+    </form>
 </div>

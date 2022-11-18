@@ -28,6 +28,7 @@ routes.post("/", (req, res)=>{
 
     
     var data = JSON.parse(req.body.data);
+    console.log(data);
     var image = req.files.image;
     
     image.mv(path.resolve()+"/assets/pro-img/"+image.name, (err)=>{

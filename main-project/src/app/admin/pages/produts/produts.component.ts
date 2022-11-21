@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from 'src/app/services/product.service';
 import { ActivatedRoute } from '@angular/router';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, NonNullableFormBuilder } from '@angular/forms';
 
 
 function checkNum(x:any){
@@ -74,11 +74,11 @@ export class ProdutsComponent implements OnInit {
     if(this.id){
       this._pro.getOneProduct(this.id).subscribe(result=>{
         // console.log(result);
-        this.product = result;
+        this.product.setValue(result);
       })
     }
     this.product = this._fb.group({
-      
+        _id : null,
         title : ["", Validators.required],
         price : [null, Validators.required],
         category :  ["", Validators.required],
@@ -117,7 +117,7 @@ export class ProdutsComponent implements OnInit {
         // console.log(img.files[0]);
         let imgdata = img.files[0];
         let form = new FormData();
-        form.append("data", this.product);
+        form.append("data", JSON.stringify(this.product.value));
         form.append("image", imgdata);
   
         //return;

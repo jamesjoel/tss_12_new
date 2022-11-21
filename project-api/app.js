@@ -5,6 +5,7 @@ const routes = require("./config/routes");
 const upload = require("express-fileupload");
 const { updateMany } = require("./models/Product");
 
+app.use(express.static(__dirname+"/assets"));
 app.use(express.json());
 app.use(express.urlencoded({ extended : true }));
 app.use(cors());

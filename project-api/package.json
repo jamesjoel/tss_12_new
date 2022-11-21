@@ -16,6 +16,7 @@
     "mongodb": "^4.10.0",
     "mongoose": "^6.6.5",
     "random-numbers": "^1.0.8",
+    "random-string": "^0.2.0",
     "sha1": "^1.1.1"
   }
 }

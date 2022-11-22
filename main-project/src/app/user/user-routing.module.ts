@@ -12,6 +12,7 @@ import { AntiAuthGuard } from '../guards/anti-auth.guard';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { OtpComponent } from './pages/otp/otp.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
+import { UpdateProfileComponent } from './pages/update-profile/update-profile.component';
 
 const routes: Routes = [
   {
@@ -59,6 +60,11 @@ const routes: Routes = [
         path : 'change-password',
         component : ChangePasswordComponent,
         canActivate : [AntiAuthGuard]
+      },
+      {
+        path : "user/update",
+        component : UpdateProfileComponent,
+        canActivate : [AuthGuard]
       }
     ]
   }

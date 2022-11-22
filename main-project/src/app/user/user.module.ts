@@ -25,6 +25,7 @@ import { ChangePasswordComponent } from './pages/change-password/change-password
 import { BoxComponent } from './shared/box/box.component';
 import { ProductBoxComponent } from './shared/product-box/product-box.component';
 import { Box2Component } from './shared/box2/box2.component';
+import { UpdateProfileComponent } from './pages/update-profile/update-profile.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { Box2Component } from './shared/box2/box2.component';
     ChangePasswordComponent,
     BoxComponent,
     ProductBoxComponent,
-    Box2Component
+    Box2Component,
+    UpdateProfileComponent
   ],
   imports: [
     CommonModule,

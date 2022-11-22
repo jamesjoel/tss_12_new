@@ -39,6 +39,21 @@ routes.get("/profile", (req, res)=>{
     }
 })
 
+routes.put("/update", (req, res)=>{
+    // console.log(req.headers);
+    var token = JSON.parse(req.headers.authorization);
+    var info = jwt.decode(token, "the stepping stone");
+    if(info){
+        //console.log(info);
+        User.updateMany({ _id : info.id }, req.body, (err, result)=>{
+            res.send({ success : true });
+        })
+    }else{
+        res.send({ success : false });
+    }
+})
+
+
 
 routes.put("/profile/:id", (req, res)=>{
     var id = req.params.id;

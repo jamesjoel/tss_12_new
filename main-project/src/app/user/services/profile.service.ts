@@ -17,6 +17,14 @@ export class ProfileService {
       );
     return this._http.get<any>("http://localhost:3000/api/user/profile", { headers : head })
   }
+
+  updateUserInfo(obj:any){
+    let head = new HttpHeaders().
+      set('Authorization', JSON.stringify(localStorage.getItem('token'))
+      );
+    return this._http.put<any>("http://localhost:3000/api/user/update", obj, { headers : head })
+
+  }
 }
 
 

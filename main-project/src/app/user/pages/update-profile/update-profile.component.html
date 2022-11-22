@@ -1,0 +1,95 @@
+<div class="container">
+    
+    <form [formGroup]="updateForm">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 mt-4">
+            
+            
+            <div class="card">
+                <div class="card-header">
+                    <h3>User Update Profile</h3>
+                </div>
+                <div class="card-body">
+                   
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" [ngClass]="{'is-invalid' : updateForm.controls['name'].errors && checkForm }" formControlName="name" class="form-control" placeholder="Full Name" />
+                        <small class="text-danger" *ngIf="updateForm.controls['name'].errors && checkForm">Insert Your Full Name</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Username/Email</label>
+                        <input type="text" [ngClass]="{'is-invalid' : updateForm.controls['email'].errors && checkForm }" formControlName="email" class="form-control" placeholder="Username/Email" />
+                        <div *ngIf="updateForm.controls['email'].errors && checkForm">
+                            <small class="text-danger" *ngIf="updateForm.controls['email'].errors['required']">Insert Your Email Id</small>
+                            <small class="text-danger" *ngIf="updateForm.controls['email'].errors['email']">This Email Id not Valid</small>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Address</label>
+                        <textarea class="form-control" [ngClass]="{'is-invalid' : updateForm.controls['address'].errors && checkForm }" formControlName="address" placeholder="Address" ></textarea>
+                        <small class="text-danger" *ngIf="updateForm.controls['address'].errors && checkForm">Insert Your Address</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>State</label>
+                        <select (change)="getCity()" [(ngModel)]="state" formControlName="state" [ngClass]="{'is-invalid' : updateForm.controls['state'].errors && checkForm }" class="form-control" >
+                            <option value="">Select</option>
+                            <option *ngFor="let s of allState">{{ s }}</option>
+                        </select>
+                        <small class="text-danger" *ngIf="updateForm.controls['state'].errors && checkForm">Select Your State</small>
+                    </div>
+                    <div class="form-group">
+                        <label>City</label>
+                        <select formControlName="city" [ngClass]="{'is-invalid' : updateForm.controls['city'].errors && checkForm }" class="form-control" >
+                            
+                            <option value="">Select State First</option>
+                            <option *ngFor="let c of allCity">
+                                {{ c.name }}
+                            </option>
+                        </select>
+                        <small class="text-danger" *ngIf="updateForm.controls['city'].errors && checkForm">Select Your City</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" value="male" class="custom-control-input" [ngClass]="{'is-invalid' : updateForm.controls['gender'].errors && checkForm }" id="male" formControlName="gender" >
+                            <label class="custom-control-label" for="male">Male</label>
+                          </div>
+                          <div class="custom-control custom-radio">
+                            <input type="radio" value="female" class="custom-control-input is-invalid" [ngClass]="{'is-invalid' : updateForm.controls['gender'].errors && checkForm }" id="female" formControlName="gender" >
+                            <label class="custom-control-label" for="female">Female</label>
+                          </div>
+                        
+                        <br />
+                        <small class="text-danger" *ngIf="updateForm.controls['gender'].errors && checkForm">Select Your Gender</small>
+                    </div>
+                    <div class="form-group">
+                        
+                        <label>Contact Number</label>
+                        
+                        <div class="input-group">
+                            <div class="input-group-repand">
+
+                                <span class="input-group-text">+91</span>
+                            </div>
+                            <input type="text" formControlName="contact" class="form-control" [ngClass]="{'is-invalid' : updateForm.controls['contact'].errors && checkForm }" placeholder="Contact" />
+                        </div>
+                        <small class="text-danger" *ngIf="updateForm.controls['contact'].errors && checkForm">
+                            <small class="text-danger" *ngIf="updateForm.controls['contact'].errors['required']">Insert Your Contact Number</small>
+                            <small class="text-danger" *ngIf="updateForm.controls['contact'].errors['numErr']">Contact Number should be a Number</small>
+                            <small class="text-danger" *ngIf="updateForm.controls['contact'].errors['lenErr']">Contact Number must be 10 digit</small>
+                        </small>
+                    </div>
+                    
+                </div>
+                <div class="card-footer">
+                    <input type="submit" (click)="update()" value="Update" class="btn btn-success" />
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+</div>
+

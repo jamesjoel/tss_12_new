@@ -20,6 +20,8 @@ import { H1Component } from './shared/h1/h1.component';
 import { DeleteComponent } from './shared/delete/delete.component';
 import { InputTextComponent } from './shared/input-text/input-text.component';
 import { TableComponent } from './shared/table/table.component';
+import { DemoComponent } from './pages/demo/demo.component';
+import { DiscountPipe } from './pipes/discount.pipe';
 
 
 @NgModule({
@@ -37,7 +39,9 @@ import { TableComponent } from './shared/table/table.component';
     H1Component,
     DeleteComponent,
     InputTextComponent,
-    TableComponent
+    TableComponent,
+    DemoComponent,
+    DiscountPipe
   ],
   imports: [
     CommonModule,

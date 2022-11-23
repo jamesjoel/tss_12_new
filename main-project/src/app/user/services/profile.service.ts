@@ -25,6 +25,13 @@ export class ProfileService {
     return this._http.put<any>("http://localhost:3000/api/user/update", obj, { headers : head })
 
   }
+
+  checkPassword(obj:any){ // { curr, newpass }
+    let head = new HttpHeaders().
+      set('Authorization', JSON.stringify(localStorage.getItem('token'))
+      );
+    return this._http.post<any>("http://localhost:3000/api/user/update_pass", obj, { headers : head });
+  }
 }
 
 

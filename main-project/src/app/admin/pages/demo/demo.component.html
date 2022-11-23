@@ -1,0 +1,35 @@
+<div class="container my-4">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- <h2>{{ a | uppercase }}</h2>
+            <h2>{{ fee | currency : '&#8377;' }}</h2>
+            <h2>{{ fee | number }}</h2>
+            <h2>{{ x | date : 'H:mm a EEEE d-MMMM-y' }}</h2> -->
+            <!-- <pre>{{ allPro | json }}</pre> -->
+            <table class="table table-dark table-hover">
+                <tr>
+                    <th>S.No.</th>
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th>Discount Price</th>
+                </tr>
+                <tr *ngFor="let p of allPro; let n = index">
+                    <td>{{ n+1 }}</td>
+                    <td>{{ p.title }}</td>
+                    <td>{{ p.price }}</td>
+                    <td>{{ p.price | discount : p.category }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- 
+    uppercase
+    lowercase
+    date
+    number
+    
+    json
+    currency
+
+ -->

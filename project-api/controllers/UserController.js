@@ -63,4 +63,32 @@ routes.put("/profile/:id", (req, res)=>{
 })
 
 
+routes.post("/update_pass", (req, res)=>{
+    // console.log(req.body);
+
+    var token = JSON.parse(req.headers.authorization);
+    var info = jwt.decode(token, "the stepping stone");
+    if(info){
+
+        var a = req.body.cur_pass;
+        var b = req.body.new_pass;
+        User.find({ _id : info.id }, (err, result)=>{
+            if(result[0].password == sha1(a))
+            {
+                User.updateMany({ _id : info.id }, { password : sha1(b)}, (err)=>{
+                    res.send({ success : true });
+                })
+            }else{
+                res.send({ success : false, type : 1 });
+            }
+        })
+
+
+    }else{
+        res.send({ success : false });
+    }
+
+
+})
+
 module.exports = routes;

@@ -10,6 +10,7 @@ import { ProdutsComponent } from './pages/produts/produts.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AntiAuthGuard } from './guards/anti-auth.guard';
+import { DemoComponent } from './pages/demo/demo.component';
 
 const routes: Routes = [
   {
@@ -61,6 +62,11 @@ const routes: Routes = [
       {
         path : "product/edit/:id",
         component : ProdutsComponent,
+        canActivate : [AuthGuard]
+      },
+      {
+        path : "demo",
+        component : DemoComponent,
         canActivate : [AuthGuard]
       }
     ]

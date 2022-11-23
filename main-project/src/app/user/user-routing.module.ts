@@ -13,6 +13,7 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
 import { OtpComponent } from './pages/otp/otp.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 import { UpdateProfileComponent } from './pages/update-profile/update-profile.component';
+import { UpdatePasswordComponent } from './pages/update-password/update-password.component';
 
 const routes: Routes = [
   {
@@ -64,6 +65,11 @@ const routes: Routes = [
       {
         path : "user/update",
         component : UpdateProfileComponent,
+        canActivate : [AuthGuard]
+      },
+      {
+        path : "user/update-password",
+        component : UpdatePasswordComponent,
         canActivate : [AuthGuard]
       }
     ]

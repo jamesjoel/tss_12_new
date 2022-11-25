@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +12,10 @@ export class CityService {
   ) { }
 
   getCity(x:any){
-    return this._http.post<any>("http://localhost:3000/api/city", { statename : x });
+    return this._http.post<any>(environment.apiUrl+"/city", { statename : x });
   }
   getState(){
-    return this._http.get<any>("http://localhost:3000/api/city/state");
+    return this._http.get<any>(environment.apiUrl+"/city/state");
 
   }
 }

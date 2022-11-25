@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  tokenName : "aWiT42"
+  tokenName : "aWiT42",
+  apiUrl : "http://localhost:3000/api"
 };
 
 /*

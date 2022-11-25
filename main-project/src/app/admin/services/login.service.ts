@@ -13,7 +13,7 @@ export class LoginService {
   ) { }
 
   do_login(obj:any){
-    return this._http.post<any>("http://localhost:3000/api/admin/login", obj);
+    return this._http.post<any>(environment.apiUrl+"/admin/login", obj);
   }
 
   isLoggedIn(){

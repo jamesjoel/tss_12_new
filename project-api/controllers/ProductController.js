@@ -2,13 +2,14 @@ const routes = require("express").Router();
 const Product = require("../models/Product");
 const path = require("path");
 const rand = require("random-string");
+const config = require("../config/config")
 
 
 routes.get("/", (req, res)=>{
     Product.find({}, (err, result)=>{
         var newresult = result.map(a=>{
             
-            a.image = "http://localhost:3000/pro-img/"+a.image;
+            a.image = config.projectUrl+"pro-img/"+a.image;
             return a;            
             
         })

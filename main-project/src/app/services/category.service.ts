@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,20 +12,20 @@ export class CategoryService {
   ) { }
 
   addCategory(formData : any){
-    return this._http.post<any>("http://localhost:3000/api/category/", formData);
+    return this._http.post<any>(environment.apiUrl+"/category/", formData);
   }
   getCategory(){
-    return this._http.get<any>("http://localhost:3000/api/category/");
+    return this._http.get<any>(environment.apiUrl+"/category/");
   }
   deleteCategory(id:any){
-    return this._http.delete<any>("http://localhost:3000/api/category/"+id);
+    return this._http.delete<any>(environment.apiUrl+"/category/"+id);
   }
   getOneCategory(id:any){
     
-    return this._http.get<any>("http://localhost:3000/api/category/"+id);
+    return this._http.get<any>(environment.apiUrl+"/category/"+id);
   }
   updateCategory(id:any, obj:any){
     
-    return this._http.put<any>("http://localhost:3000/api/category/"+id, obj);
+    return this._http.put<any>(environment.apiUrl+"/category/"+id, obj);
   }
 }

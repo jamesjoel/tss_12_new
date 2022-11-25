@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -15,14 +16,14 @@ export class ProfileService {
     let head = new HttpHeaders().
       set('Authorization', JSON.stringify(localStorage.getItem('token'))
       );
-    return this._http.get<any>("http://localhost:3000/api/user/profile", { headers : head })
+    return this._http.get<any>(environment.apiUrl+"/user/profile", { headers : head })
   }
 
   updateUserInfo(obj:any){
     let head = new HttpHeaders().
       set('Authorization', JSON.stringify(localStorage.getItem('token'))
       );
-    return this._http.put<any>("http://localhost:3000/api/user/update", obj, { headers : head })
+    return this._http.put<any>(environment.apiUrl+"/user/update", obj, { headers : head })
 
   }
 
@@ -30,7 +31,7 @@ export class ProfileService {
     let head = new HttpHeaders().
       set('Authorization', JSON.stringify(localStorage.getItem('token'))
       );
-    return this._http.post<any>("http://localhost:3000/api/user/update_pass", obj, { headers : head });
+    return this._http.post<any>(environment.apiUrl+"/user/update_pass", obj, { headers : head });
   }
 }
 

@@ -13,5 +13,13 @@ routes.get("/state", (req, res)=>{
         res.send(result);
     })
 })
+routes.get("/demo", (req, res)=>{
+    City.find({ state : "Telangana"}, (err, result)=>{
+        if(err){
+            console.log(err);
+        }
+        res.send(result);
+    })
+})
 
 module.exports = routes;

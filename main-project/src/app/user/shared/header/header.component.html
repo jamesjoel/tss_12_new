@@ -33,7 +33,7 @@
                                 Category
                               </a>
                               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a *ngFor="let c of allCategory" class="dropdown-item" href="#">{{ c.name }}</a>
+                                <a *ngFor="let c of allCategory" class="dropdown-item" routerLink="/productbycategory/{{ c.name }}">{{ c.name }}</a>
                                 
                               </div>
                             </li>

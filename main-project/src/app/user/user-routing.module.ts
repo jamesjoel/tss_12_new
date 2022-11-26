@@ -14,6 +14,8 @@ import { OtpComponent } from './pages/otp/otp.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 import { UpdateProfileComponent } from './pages/update-profile/update-profile.component';
 import { UpdatePasswordComponent } from './pages/update-password/update-password.component';
+import { BuyproductComponent } from './pages/buyproduct/buyproduct.component';
+import { ProductbycategoryComponent } from './pages/productbycategory/productbycategory.component';
 
 const routes: Routes = [
   {
@@ -71,6 +73,14 @@ const routes: Routes = [
         path : "user/update-password",
         component : UpdatePasswordComponent,
         canActivate : [AuthGuard]
+      },
+      {
+        path : "buyproduct/:id",
+        component : BuyproductComponent
+      },
+      {
+        path : "productbycategory/:name",
+        component : ProductbycategoryComponent
       }
     ]
   }

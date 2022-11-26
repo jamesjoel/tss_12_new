@@ -33,4 +33,9 @@ export class ProductService {
   getLastProduct(){
     return this._http.get<any>(environment.apiUrl+"/product/lastproduct");
   }
+
+
+  getProductByCategory(name:any){
+    return this._http.get<any>(environment.apiUrl+"/product/bycategory/"+name);
+  }
 }

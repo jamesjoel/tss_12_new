@@ -27,6 +27,9 @@ import { ProductBoxComponent } from './shared/product-box/product-box.component'
 import { Box2Component } from './shared/box2/box2.component';
 import { UpdateProfileComponent } from './pages/update-profile/update-profile.component';
 import { UpdatePasswordComponent } from './pages/update-password/update-password.component';
+import { DiscountPipe } from './pipes/discount.pipe';
+import { BuyproductComponent } from './pages/buyproduct/buyproduct.component';
+import { ProductbycategoryComponent } from './pages/productbycategory/productbycategory.component';
 
 
 @NgModule({
@@ -50,7 +53,10 @@ import { UpdatePasswordComponent } from './pages/update-password/update-password
     ProductBoxComponent,
     Box2Component,
     UpdateProfileComponent,
-    UpdatePasswordComponent
+    UpdatePasswordComponent,
+    DiscountPipe,
+    BuyproductComponent,
+    ProductbycategoryComponent
   ],
   imports: [
     CommonModule,

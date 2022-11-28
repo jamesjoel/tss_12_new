@@ -1,1 +1,22 @@
-<p>buyproduct works!</p>
+<div class="container my-4" style="min-height: 700px;">
+    <div class="row">
+        <div class="col-md-6 border border-danger">
+            <div class="row">
+                <div class="col-md-4">
+                    <img (mouseover)="changeMainImg(product.img1)" src="assets/img/gallery/{{ product.img1 }}" class="small-img"/>
+                    <img (mouseover)="changeMainImg(product.img2)" src="assets/img/gallery/{{ product.img2 }}"  class="small-img"/>
+                    <img (mouseover)="changeMainImg(product.img3)" src="assets/img/gallery/{{ product.img3 }}"  class="small-img"/>
+                    <img (mouseover)="changeMainImg(product.img4)" src="assets/img/gallery/{{ product.img4 }}"  class="small-img"/>
+                    
+
+                </div>
+                <div class="col-md-8 text-center">
+                    <img (mouseover)="showBigImg()" (mouseout)="hideBigImg()" src="assets/img/gallery/{{ mainImg }}" style="height: 400px; width: 300px; cursor: zoom-in;"/>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6"></div>
+    </div>
+</div>
+
+<div *ngIf="bigImg" class="overlay" style="background-image: url('assets/img/gallery/{{ mainImg }}');"></div>

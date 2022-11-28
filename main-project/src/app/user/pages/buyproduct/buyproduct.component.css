@@ -1,0 +1,15 @@
+.small-img{
+    width: 100px;
+    margin: 5px;
+    border:1px solid #000;
+    height: 100px;
+}
+.overlay{
+    position: absolute;
+    right: 100px;
+    top: 40px;
+    width: 700px;
+    height: 500px;
+    background-color: red;
+    background-size: 100% 100%;
+}

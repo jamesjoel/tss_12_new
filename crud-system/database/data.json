@@ -1,0 +1,34 @@
+{
+  "student": [
+    {
+      "id": 1,
+      "name": "rohit ",
+      "age": "20",
+      "city": "mumbai"
+    },
+    {
+      "id": 4,
+      "name": "james joel",
+      "age": "34",
+      "city": "indore"
+    },
+    {
+      "id": 5,
+      "name": "jaya verma",
+      "age": "21",
+      "city": "mumbai"
+    },
+    {
+      "id": 6,
+      "name": "Gaurav Sharma",
+      "age": "31",
+      "city": "delhi"
+    }
+  ],
+  "teacher" : [
+    {
+      "id" : 1,
+      "name" : "james"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- <pre>{{ stu | json }}</pre> -->
+            <button (click)="clearObj()" class="btn btn-sm btn-info" data-toggle="modal" data-target="#addModal">Add Student</button>
+            <table class="table table-dark mt-3">
+                <tr>
+                    <th>
+                        S.No.
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Age
+                    </th>
+                    <th>
+                        City
+                    </th>
+                    <th>
+                        Update
+                    </th>
+                    <th>
+                        Delete
+                    </th>
+                </tr>
+
+                <tr *ngFor="let s of allStudent; let n = index">
+                    <td>{{ n+1 }}</td>
+                    <td>{{ s.name }}</td>
+                    <td>{{ s.age }}</td>
+                    <td>{{ s.city }}</td>
+                    <td><button (click)="askUpdate(s)" data-toggle="modal" data-target="#addModal" class="btn btn-warning btn-sm">Update</button></td>
+                    <td><button data-toggle="modal" (click)="askDelete(s)" data-target="#delModal" class="btn btn-danger btn-sm">Delete</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="addModal">
+    <form [formGroup]="student">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>{{ stu ? 'Update' : 'Add New' }} Student</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="">Full Name</label>
+                    <input type="text" formControlName="name" [ngClass]="{'is-invalid' : checkForm && student.controls['name'].errors }" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="">Age</label>
+                    <input type="text" formControlName="age" [ngClass]="{'is-invalid' : checkForm && student.controls['age'].errors }" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="">City</label>
+                    <select class="form-control" formControlName="city" [ngClass]="{'is-invalid' : checkForm && student.controls['city'].errors }">
+                        <option>Select</option>
+                        <option value="{{ c }}" *ngFor="let c of allCity">{{ c | uppercase }}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success" (click)="add(closeBtn)">{{ stu ? 'Update' : 'Add' }}</button>
+                <button class="btn btn-danger" #closeBtn data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+    </form>
+</div>
+
+<div class="modal fade" id="delModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Delete Student</h4>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure want to delete <b *ngIf="stu">{{ stu.name }}</b></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger btn-sm" (click)="confDelete(closeBtn2)">Yes</button>
+                <button class="btn btn-success btn-sm" #closeBtn2 data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>

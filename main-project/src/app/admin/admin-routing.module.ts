@@ -11,6 +11,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AntiAuthGuard } from './guards/anti-auth.guard';
 import { DemoComponent } from './pages/demo/demo.component';
+import { CityComponent } from './pages/city/city.component';
+
 
 const routes: Routes = [
   {
@@ -67,6 +69,11 @@ const routes: Routes = [
       {
         path : "demo",
         component : DemoComponent,
+        canActivate : [AuthGuard]
+      },
+      {
+        path : "city",
+        component : CityComponent,
         canActivate : [AuthGuard]
       }
     ]

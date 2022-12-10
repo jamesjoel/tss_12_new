@@ -22,6 +22,8 @@ import { InputTextComponent } from './shared/input-text/input-text.component';
 import { TableComponent } from './shared/table/table.component';
 import { DemoComponent } from './pages/demo/demo.component';
 import { DiscountPipe } from './pipes/discount.pipe';
+import { CityComponent } from './pages/city/city.component';
+import { HelloDirective } from './directives/hello.directive';
 
 
 @NgModule({
@@ -41,7 +43,9 @@ import { DiscountPipe } from './pipes/discount.pipe';
     InputTextComponent,
     TableComponent,
     DemoComponent,
-    DiscountPipe
+    DiscountPipe,
+    CityComponent,
+    HelloDirective
   ],
   imports: [
     CommonModule,

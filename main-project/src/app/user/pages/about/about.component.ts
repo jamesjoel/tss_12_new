@@ -7,7 +7,7 @@ import { ProductService } from 'src/app/services/product.service';
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css']
 })
-export class AboutComponent implements OnInit {
+export class AboutComponent {
 
   x:any;
   y:any;
@@ -23,9 +23,7 @@ export class AboutComponent implements OnInit {
 
        }
 
-  ngOnInit(): void {
-  }
-
+ 
 
   demo2(a:any){
     // console.log(a);

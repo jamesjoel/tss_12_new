@@ -16,6 +16,13 @@ export class CityService {
   }
   getState(){
     return this._http.get<any>(environment.apiUrl+"/city/state");
+    
+  }
+  getAllCity(recPerPage:any){
+    return this._http.get<any>(environment.apiUrl+"/city/pagination/"+recPerPage);
 
+  }
+  getTotalCity(){
+    return this._http.get<any>(environment.apiUrl+"/city/count");
   }
 }

@@ -1,5 +1,8 @@
 <p>dashboard works!</p>
+<h2 appHello>hello world</h2>
 <app-input-text [data]="'Full Name'"></app-input-text>
 <br />
 <app-input-text [data]="'Email'"></app-input-text>
 <app-h1 [data]="'welcome'"></app-h1>
+<h2 #a>Hello World</h2>
+<button (click)="demo(a)">OK</button>

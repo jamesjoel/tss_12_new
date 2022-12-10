@@ -15,6 +15,7 @@ export class UsersService {
     return this._http.get<any>(environment.apiUrl+"/user/list");
   }
   updateUser(id:any, obj:any){
-    return this._http.put<any>(environment.apiUrl+"/user/profile/"+id, obj);
+    // return this._http.put<any>(environment.apiUrl+"/user/profile/"+id, obj);
+    return this._http.put<any>(`${environment.apiUrl}/user/profile/${id}`, obj);
   }
 }

@@ -24,6 +24,7 @@ import { DemoComponent } from './pages/demo/demo.component';
 import { DiscountPipe } from './pipes/discount.pipe';
 import { CityComponent } from './pages/city/city.component';
 import { HelloDirective } from './directives/hello.directive';
+import { PaginationComponent } from './pages/pagination/pagination.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { HelloDirective } from './directives/hello.directive';
     DemoComponent,
     DiscountPipe,
     CityComponent,
-    HelloDirective
+    HelloDirective,
+    PaginationComponent
   ],
   imports: [
     CommonModule,

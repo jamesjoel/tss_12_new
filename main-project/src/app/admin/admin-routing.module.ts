@@ -12,6 +12,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { AntiAuthGuard } from './guards/anti-auth.guard';
 import { DemoComponent } from './pages/demo/demo.component';
 import { CityComponent } from './pages/city/city.component';
+import { PaginationComponent } from './pages/pagination/pagination.component';
 
 
 const routes: Routes = [
@@ -74,6 +75,11 @@ const routes: Routes = [
       {
         path : "city",
         component : CityComponent,
+        canActivate : [AuthGuard]
+      },
+      {
+        path : "pagination",
+        component: PaginationComponent,
         canActivate : [AuthGuard]
       }
     ]

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
-@Injectable({
+@Injectable({ 
   providedIn: 'root'
 })
 export class CityService {
@@ -18,8 +18,8 @@ export class CityService {
     return this._http.get<any>(environment.apiUrl+"/city/state");
     
   }
-  getAllCity(recPerPage:any){
-    return this._http.get<any>(environment.apiUrl+"/city/pagination/"+recPerPage);
+  getAllCity(skip:any, limit:any){
+    return this._http.get<any>(environment.apiUrl+"/city/pagination/"+skip+"/"+limit);
 
   }
   getTotalCity(){

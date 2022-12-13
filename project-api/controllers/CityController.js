@@ -13,12 +13,13 @@ routes.get("/state", (req, res)=>{
         res.send(result);
     })
 })
-routes.get("/pagination/:a", (req, res)=>{
-    var a = req.params.a;
+routes.get("/pagination/:skip/:limit", (req, res)=>{
+    var a = req.params.skip;
+    var b = req.params.limit;
     // City.find({}, (err, result)=>{
     //     res.send(result);
     // })
-    City.find({}).limit(a).exec((err, result)=>{
+    City.find({}).skip(a).limit(b).exec((err, result)=>{
         res.send(result);
     })
 })
